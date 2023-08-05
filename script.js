@@ -6,6 +6,6 @@ function handleRequest(content, message) {
   outputElement.appendChild(requestInfo);
 }
 
-const exampleContent = 'Exemple de contenu';
-const exampleMessage = 'Exemple de message';
+const exampleContent = '';
+const exampleMessage = '';
 handleRequest(exampleContent, exampleMessage);
