@@ -9,8 +9,9 @@ document.addEventListener("touchstart", function(e) {
 }, { passive: false });
 
 const randomNumberElement = document.getElementById("randomNumber");
+const generateButton = document.getElementById("generateButton");
 
-window.addEventListener("click", () => {
+generateButton.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * 101) + 1;
     randomNumberElement.textContent = randomNumber;
 });
