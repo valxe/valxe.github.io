@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Hey uwu</title>
+    <title>Messages du Serveur Minecraft</title>
 </head>
 <body>
-  <div class="container">
-    <h1>j'ai pas didee</h1>
-    <div class="output">
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <h1>Messages du Serveur Minecraft</h1>
+    <ul id="message-list"></ul>
+
+    <script>
+        const messageList = document.getElementById('message-list');
+
+        function displayMessage(message) {
+            const listItem = document.createElement('li');
+            listItem.textContent = message;
+            messageList.appendChild(listItem);
+        }
+
+        // Recevoir les requêtes de l'API
+        const server = new WebSocket('wss://8b8t.valxe.repl.co'); // Remplacez avec votre URL Replit
+
+        server.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+            displayMessage(message);
+        };
+    </script>
 </body>
 </html>
