@@ -2,26 +2,13 @@
 <html>
 <head>
     <title>Messages du Serveur Minecraft</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Messages du Serveur Minecraft</h1>
-    <ul id="message-list"></ul>
+    <div class="chat-container">
+        <div id="message-list" class="reversed"></div>
+    </div>
 
-    <script>
-        const messageList = document.getElementById('message-list');
-
-        function displayMessage(username, message) {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${username} : ${message}`;
-            messageList.appendChild(listItem);
-        }
-        
-        const server = new WebSocket('wss://8b8t.valxe.repl.co');
-
-        server.onmessage = (event) => {
-            const message = JSON.parse(event.data);
-            displayMessage(message.username, message.message);
-        };
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
