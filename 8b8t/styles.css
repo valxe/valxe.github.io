@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #36393F; /* Couleur de fond Discord */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+   overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: height 0.3s;
+    background-color: #36393F; /* Couleur d'arrière-plan du chat */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.chat-open {
+    height: 100vh; /* Hauteur maximale lorsque le chat est ouvert */
+}
+
+#message-list {
+    overflow-y: scroll;
+    height: 100%; /* Remplit la hauteur du conteneur de messages */
+    transform: scaleY(+1); /* Inverse l'affichage des messages */
+}
+
+.reversed {
+    transform: scaleY(+1); /* Inverse l'affichage des messages */
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-weight: bold;
+    color: #7289DA; /* Couleur du nom d'utilisateur Discord */
+}
+
+.content {
+    padding: 8px;
+    border-radius: 5px;
+    color: #FFFFFF; /* Couleur du texte du message */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#parent{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#child{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+}
