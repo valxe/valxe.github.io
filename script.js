@@ -1,7 +1,16 @@
-const randomNumberElement = document.getElementById("randomNumber");
-const generateButton = document.getElementById("generateButton");
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
 
-generateButton.addEventListener("click", () => {
+document.addEventListener("touchstart", function(e) {
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+const randomNumberElement = document.getElementById("randomNumber");
+
+window.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * 101) + 1;
     randomNumberElement.textContent = randomNumber;
 });
