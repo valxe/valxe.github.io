@@ -1,25 +1,18 @@
-const sendButton = document.getElementById('sendButton');
+const messagesContainer = document.querySelector('.messages');
 
-sendButton.addEventListener('click', async () => {
-  const content = document.getElementById('contentInput').value;
-  const message = document.getElementById('messageInput').value;
+fetch('https://api.formspree.io/xleygkzq/submissions')
+  .then(response => response.json())
+  .then(data => {
+    displayMessages(data);
+  })
+  .catch(error => {
+    console.error('Erreur :', error);
+  });
 
-  const formData = new FormData();
-  formData.append('content', content);
-  formData.append('message', message);
-
-  try {
-    const response = await fetch('https://formspree.io/f/xleygkzq', {
-      method: 'POST',
-      body: formData,
-    });
-
-    if (response.ok) {
-      console.log('Requête envoyée');
-    } else {
-      console.error('Échec');
-    }
-  } catch (error) {
-    console.error('Erreur:', error);
-  }
-});
+function displayMessages(messages) {
+  messages.forEach(message => {
+    const messageElement = document.createElement('p');
+    messageElement.textContent = `Contenu : ${message.content}, Message : ${message.message}`;
+    messagesContainer.appendChild(messageElement);
+  });
+}
