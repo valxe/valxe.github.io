@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>8B8T<head>
-  <title></title>
+<head>
+  <title>Message</title>
 </head>
 <body>
-</h1>Chat</h1>
+  <h1>8b8t chat</h1>
   <ul id="message-list">
   </ul>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
-      $.get('/get-messages', function(messages) {
+      $.get('https://valxe.github.io/api/get-messages', function(messages) {
         const messageList = $('#message-list');
         messages.forEach(function(message) {
           const listItem = $('<li>').text(`Pseudo : ${message.username}, Message : ${message.content}`);
