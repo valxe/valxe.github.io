@@ -10,9 +10,9 @@
     <script>
         const messageList = document.getElementById('message-list');
 
-        function displayMessage(message) {
+        function displayMessage(username, message) {
             const listItem = document.createElement('li');
-            listItem.textContent = message;
+            listItem.textContent = `${username} : ${message}`;
             messageList.appendChild(listItem);
         }
         
@@ -20,7 +20,7 @@
 
         server.onmessage = (event) => {
             const message = JSON.parse(event.data);
-            displayMessage(message);
+            displayMessage(message.username, message.message);
         };
     </script>
 </body>
