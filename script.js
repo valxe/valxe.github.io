@@ -1,18 +1,43 @@
-const messagesContainer = document.querySelector('.messages');
+const server = new WebSocket('wss://8b8t.valxe.repl.co');
 
-fetch('https://api.formspree.io/xleygkzq/submissions')
-  .then(response => response.json())
-  .then(data => {
-    displayMessages(data);
-  })
-  .catch(error => {
-    console.error('Erreur :', error);
-  });
+server.onmessage = (event) => {
+    const message = JSON.parse(event.data);
+    displayMessage(message.username, message.message);
+    messageList.scrollTop = messageList.scrollHeight;
+};
 
-function displayMessages(messages) {
-  messages.forEach(message => {
-    const messageElement = document.createElement('p');
-    messageElement.textContent = `Contenu : ${message.content}, Message : ${message.message}`;
-    messagesContainer.appendChild(messageElement);
-  });
+const messageList = document.getElementById('message-list');
+const chatContainer = document.querySelector('.chat-container');
+
+function displayMessage(username, message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    
+    const usernameDiv = document.createElement('div');
+    usernameDiv.classList.add('username');
+    usernameDiv.textContent = username + " : ";
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('content');
+
+    if (message.startsWith('>')) {
+        contentDiv.style.color = 'green';
+        contentDiv.textContent = message.substring(1);
+    } else {
+        contentDiv.textContent = message;
+    }
+
+    if (message.startsWith(' >')) {
+        contentDiv.style.color = 'green';
+        contentDiv.textContent = message.substring(1);
+    } else {
+        contentDiv.textContent = message;
+    }
+    
+    messageDiv.appendChild(usernameDiv);
+    messageDiv.appendChild(contentDiv);
+    
+    messageList.appendChild(messageDiv);
+    
+    chatContainer.classList.add('chat-open');
 }
