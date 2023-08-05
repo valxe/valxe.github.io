@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You <3</title>
-    <link rel="stylesheet" href="main.css">
+<html>
+<head>8B8T<head>
+  <title></title>
 </head>
 <body>
-    <div class="container">
-        <h1>How much i love you in % : <span id="randomNumber"></span></h1>
-        <button id="generateButton">Press !</button>
-    </div>
-    <script src="script.js"></script>
+</h1>Chat</h1>
+  <ul id="message-list">
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $.get('/get-messages', function(messages) {
+        const messageList = $('#message-list');
+        messages.forEach(function(message) {
+          const listItem = $('<li>').text(`Pseudo : ${message.username}, Message : ${message.content}`);
+          messageList.append(listItem);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
