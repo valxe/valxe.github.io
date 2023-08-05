@@ -16,7 +16,7 @@
             messageList.appendChild(listItem);
         }
         
-        const server = new WebSocket('wss://8b8t.valxe.repl.co:3000');
+        const server = new WebSocket('wss://8b8t.valxe.repl.co');
 
         server.onmessage = (event) => {
             const message = JSON.parse(event.data);
