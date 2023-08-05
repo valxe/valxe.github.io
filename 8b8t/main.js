@@ -3,8 +3,6 @@ const server = new WebSocket('wss://8b8t.valxe.repl.co');
 server.onmessage = (event) => {
     const message = JSON.parse(event.data);
     displayMessage(message.username, message.message);
-
-    // Scroll vers le bas lorsque le nouveau message est ajouté
     messageList.scrollTop = messageList.scrollHeight;
 };
 
