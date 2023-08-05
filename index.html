@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Message</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hey uwu</title>
 </head>
 <body>
-  <h1>8b8t chat</h1>
-  <ul id="message-list">
-  </ul>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $.get('https://valxe.github.io/api/get-messages', function(messages) {
-        const messageList = $('#message-list');
-        messages.forEach(function(message) {
-          const listItem = $('<li>').text(`Pseudo : ${message.username}, Message : ${message.content}`);
-          messageList.append(listItem);
-        });
-      });
-    });
-  </script>
+  <div class="container">
+    <h1>j'ai pas didee</h1>
+    <div class="output">
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
