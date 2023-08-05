@@ -1,24 +1,11 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const outputElement = document.querySelector('.output');
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+function handleRequest(content, message) {
+  const requestInfo = document.createElement('p');
+  requestInfo.textContent = `Contenu : ${content}, Message : ${message}`;
+  outputElement.appendChild(requestInfo);
+}
 
-const messages = [];
-
-app.post('/api/send-message', (req, res) => {
-  const { username, content } = req.body;
-  const newMessage = { username, content };
-  messages.push(newMessage);
-  console.log('Nouveau message :', newMessage);
-  res.json({ message: 'Message reçu' });
-});
-
-app.get('/api/get-messages', (req, res) => {
-  res.json(messages);
-});
-
-app.listen(port, () => {
-  console.log(`${port}`);
-});
+const exampleContent = 'Exemple de contenu';
+const exampleMessage = 'Exemple de message';
+handleRequest(exampleContent, exampleMessage);
