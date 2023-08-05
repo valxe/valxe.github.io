@@ -15,9 +15,8 @@
             listItem.textContent = message;
             messageList.appendChild(listItem);
         }
-
-        // Recevoir les requêtes de l'API
-        const server = new WebSocket('wss://8b8t.valxe.repl.co'); // Remplacez avec votre URL Replit
+        
+        const server = new WebSocket('wss://8b8t.valxe.repl.co:3000');
 
         server.onmessage = (event) => {
             const message = JSON.parse(event.data);
