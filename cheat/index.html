@@ -164,4 +164,40 @@
 </body>
 
 
+
+
+<input type="hidden" name="global_site_url" value="https://myth.rip/" />
+<input type="hidden" name="global_url" value="https://myth.rip/" />
+<input type="hidden" name="global_token" value="c93af4d5127a15b179e3f62698a49a9b" />
+<input type="hidden" name="global_number_decimal_point" value="." />
+<input type="hidden" name="global_number_thousands_separator" value="," />
+
+<script>
+    /* Some global variables */
+    window.altum = {};
+    let global_token = document.querySelector('input[name="global_token"]').value;
+    let site_url = document.querySelector('input[name="global_site_url"]').value;
+    let url = document.querySelector('input[name="global_url"]').value;
+    let decimal_point = document.querySelector('[name="global_number_decimal_point"]').value;
+    let thousands_separator = document.querySelector('[name="global_number_thousands_separator"]').value;
+</script>
+
+            <script src="https://myth.rip/themes/altum/assets/js/libraries/jquery.min.js?v=3200"></script>
+            <script src="https://myth.rip/themes/altum/assets/js/libraries/popper.min.js?v=3200"></script>
+            <script src="https://myth.rip/themes/altum/assets/js/libraries/bootstrap.min.js?v=3200"></script>
+            <script src="https://myth.rip/themes/altum/assets/js/custom.js?v=3200"></script>
+            <script src="https://myth.rip/themes/altum/assets/js/libraries/fontawesome-all.min.js?v=3200"></script>
+    
+    <script>
+    /* Internal tracking for biolink page blocks */
+    document.querySelectorAll('a[data-track-biolink-block-id]').forEach(element => {
+        element.addEventListener('click', event => {
+            let biolink_block_id = event.currentTarget.getAttribute('data-track-biolink-block-id');
+            navigator.sendBeacon(`${site_url}l/link?biolink_block_id=${biolink_block_id}&no_redirect`);
+        });
+    });
+</script>
+
+
+
 </html>
