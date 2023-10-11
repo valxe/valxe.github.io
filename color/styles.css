@@ -1,0 +1,16 @@
+@font-face {
+    font-family: c;
+    src: url(https://fonts.gstatic.com/s/concertone/v11/VEM1Ro9xs5PjtzCu-srDqSTijP4.woff2);
+}
+
+body {
+    transition: background-color 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 5em;
+    color: white;
+    font-family: c;
+}
