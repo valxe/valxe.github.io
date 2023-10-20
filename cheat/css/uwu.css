@@ -1,19 +1,13 @@
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #8f54a0 transparent;
+::-webkit-scrollbar {
+	width: 10px;
 }
 
-*::-webkit-scrollbar {
-  width: 11px;
+::-webkit-scrollbar-track {
+	background: #e8a5ff;
+	border-radius: -6px;
 }
 
-*::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 14px;
-  border: 3px none #000000;
+::-webkit-scrollbar-thumb {
+	background: #8f3df5;
+	border-radius: 27px;
 }
