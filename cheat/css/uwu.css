@@ -1,13 +1,12 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
 ::-webkit-scrollbar {
-	width: 10px;
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
-
-::-webkit-scrollbar-track {
-	background: #e8a5ff33;
-	border-radius: -6px;
-}
-
+/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-	background: #8f3df5;
-	border-radius: 27px;
+    background: #FF0000;
 }
