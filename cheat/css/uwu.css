@@ -1,6 +1,6 @@
 * {
   scrollbar-width: auto;
-  scrollbar-color: #8f54a0 #001313;
+  scrollbar-color: #8f54a0 transparent;
 }
 
 *::-webkit-scrollbar {
@@ -13,7 +13,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #8f54a0;
+  background-color: transparent;
   border-radius: 14px;
   border: 3px none #000000;
 }
